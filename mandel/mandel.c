@@ -78,26 +78,16 @@ int main(void) {
 			mu /= (float)cnt;
 			if((int)mu == ITRS) {
 				uint32_t *pix;
-				pxData[px][py][0] = 0;
-				pxData[px][py][1] = 0;
-				pxData[px][py][2] = 0;
 				pix = (uint32_t*)surface->pixels;
 				pix[px+WINDOW_WIDTH*py] = (uint32_t)0;
-				//SDL_SetRenderDrawColor(renderer, (int)0, (int)0, (int)0, 255);
 			} else {
 				uint32_t *pix;
 				iters2rgb(mu, ITRS, &r, &g, &b);
-				pxData[px][py][0] = r;
-				pxData[px][py][1] = g;
-				pxData[px][py][2] = b;
 				pix = (uint32_t*)surface->pixels;
 				pix[px+WINDOW_WIDTH*py] = ((uint8_t)r << 16) |
 					((uint8_t)g << 8) |
 					((uint8_t)b);
-				///SDL_SetRenderDrawColor(renderer, r,g,b, 255);
 			}
-
-			//SDL_RenderDrawPoint(renderer, px, py); // Apply colour to a pixel
 		}
 		if(omp_get_thread_num() == 0)
 			SDL_UpdateWindowSurface(surfWindow);
