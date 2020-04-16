@@ -9,7 +9,7 @@
 #include <SDL2/SDL.h>
 
 #define WINDOW_WIDTH 1000
-#define ITRS 1000
+#define ITRS 2000
 
 float mandel(float xp, float yp, int maxIters);
 
@@ -58,24 +58,6 @@ int main(void) {
 			float mu, muTmp;
 			int r, g, b, cnt = 0;;
 			mu = mandel(x, y, ITRS);
-			cnt++;
-			//muTmp = mandel(x+zoom/WINDOW_WIDTH, y+zoom/WINDOW_WIDTH, ITRS);
-			//if(muTmp < ITRS){cnt++; mu+=muTmp;}
-			muTmp = mandel(x+zoom/WINDOW_WIDTH, y, ITRS);
-			if(muTmp < ITRS){cnt++; mu+=muTmp;}
-			//muTmp = mandel(x+zoom/WINDOW_WIDTH, y-zoom/WINDOW_WIDTH, ITRS);
-			//if(muTmp < ITRS){cnt++; mu+=muTmp;}
-			muTmp = mandel(x, y-zoom/WINDOW_WIDTH, ITRS);
-			if(muTmp < ITRS){cnt++; mu+=muTmp;}
-			//muTmp = mandel(x-zoom/WINDOW_WIDTH, y-zoom/WINDOW_WIDTH, ITRS);
-			//if(muTmp < ITRS){cnt++; mu+=muTmp;}
-			muTmp = mandel(x-zoom/WINDOW_WIDTH, y, ITRS);
-			//if(muTmp < ITRS){cnt++; mu+=muTmp;}
-			//muTmp = mandel(x-zoom/WINDOW_WIDTH, y+zoom/WINDOW_WIDTH, ITRS);
-			if(muTmp < ITRS){cnt++; mu+=muTmp;}
-			muTmp = mandel(x, y+zoom/WINDOW_WIDTH, ITRS);
-			if(muTmp < ITRS){cnt++; mu+=muTmp;}
-			mu /= (float)cnt;
 			if((int)mu == ITRS) {
 				uint32_t *pix;
 				pix = (uint32_t*)surface->pixels;
