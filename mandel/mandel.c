@@ -9,7 +9,7 @@
 #include <SDL2/SDL.h>
 
 #define WINDOW_WIDTH 1000
-#define ITRS 2000
+#define ITRS 20000
 
 float mandel(float xp, float yp, int maxIters);
 
